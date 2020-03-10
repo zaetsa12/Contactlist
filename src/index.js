@@ -2,7 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 // import Text from "./components/contactList/contactlist";
-import Text from "./components/contactList/contactlist"
+import Text from "./components/contactList/contactlist";
+import '../node_modules/font-awesome/css/font-awesome.min.css' ;
+
 
 const App = () => {
     return (
