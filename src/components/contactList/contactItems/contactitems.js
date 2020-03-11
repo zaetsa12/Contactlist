@@ -3,16 +3,17 @@ import "./contactitems.css";
 
 class ContactItem extends Component {
   state = {
-    name: "Seth Fraziery",
-    address: "Harm, Stepana Banderu Street",
-    phone: "(097) 555-55-12",
-    email: "seth@i.ua",
-    avatar: "16",
-    gender: "women",
+    name: this.props.name,
+    address: this.props.address,
+    phone: this.props.phone,
+    email: this.props.email,
+    avatar: this.props.avatar,
+    gender: this.props.gender,
     starEmpty: "far fa-star fa-1x",
     starFull: "fas fa-star fa-1x",
     b: "true",
-    f: "false"
+    star: "false"
+
   };
 
   onRandomAvatar = () => {
@@ -30,9 +31,10 @@ class ContactItem extends Component {
     const f = false;
 
     if (b) {
+        
       this.setState({
         starEmpty: starFull,
-        f: b
+        b: !b
       });
       //element.removeClassName(starEmpty);
       //element.addClassName(starFull);
@@ -61,8 +63,11 @@ class ContactItem extends Component {
     const URL = `https://api.randomuser.me/portraits/${gender}/${avatar}.jpg`;
 
     //let starEmpty = "far fa-star fa-1x";
+    console.log('Contact item props =>', this.props)
 
     return (
+
+
       <Fragment>
         <div>
           <li className="list-group-item">
@@ -114,7 +119,7 @@ class ContactItem extends Component {
                   id="menu-icon"
                   className={starEmpty}
                   aria-hidden={b}
-                  onClick={this.Favorite}
+                  onClick={this.onStarchange}
                 ></span>
                 {/* <i className={starFull} aria-hidden="false"></i> */}
               </div>
